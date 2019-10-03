@@ -1,8 +1,8 @@
-# ICLR-2020
+# [ICLR-2020](https://openreview.net/forum?id=B1lf4yBYPr)
 
 ## Introduction
 
-This repository contains the original implementation of the paper - **Model more Intelligent than I want it to be? A Framework for Measuring and Improving Deep Learning Model Trust**.
+This repository contains the original implementation of the paper - **[Is my deep learning model learning more than I want it to?](https://openreview.net/forum?id=B1lf4yBYPr)**.
 
 
 ## Quick Start
