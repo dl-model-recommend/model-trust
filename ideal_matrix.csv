@@ -1,0 +1,6 @@
+task,color,shape,size,quadrant,background
+color,1,0.2,0.33,0.25,0.33
+shape,0.1429,1,0.33,0.25,0.33
+size,0.1429,0.2,1,0.25,0.33
+quadrant,0.1429,0.2,0.33,1,0.33
+background,0.1429,0.2,0.33,0.25,1
