@@ -38,6 +38,16 @@ model_dir = "models"
 if not os.path.exists(model_dir):
 	os.makedirs(model_dir)
 
+
+########################################################################################
+#
+# Change build_model
+#
+#
+#
+#
+########################################################################################
+
 def build_model(num_lables):
 
 	base_model = DenseNet121(include_top=False, weights=None, input_shape=(256,256,3))
@@ -51,6 +61,8 @@ def build_model(num_lables):
 
 	model = Model(base_model.input, cus_dense_3)
 	return model
+
+
 
 def training():
 

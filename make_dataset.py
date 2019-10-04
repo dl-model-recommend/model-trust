@@ -268,7 +268,7 @@ def makeDataset(numberOfTrials, data_type):
 							num += 1
 		#                     except Exception as e:
 		#                         print(num, repr(e))
-		print(time.time() - tic, "completed color : ", c)
+		# print(time.time() - tic, "completed color : ", c)
 
 
 	# print("Number of lines in CSV including heards", len(answers))#this is with header
