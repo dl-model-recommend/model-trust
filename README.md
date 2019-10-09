@@ -1,9 +1,10 @@
 # [ICLR-2020](https://openreview.net/forum?id=B1lf4yBYPr)
 
-## Introduction
-
 This repository contains the original implementation of the paper - **[Is my deep learning model learning more than I want it to?](https://openreview.net/forum?id=B1lf4yBYPr)**.
 
+## Introduction
+
+## Dependencies
 
 ## Quick Start
 
@@ -50,3 +51,7 @@ $ python classification_net.py --task color --prefix densenet --epoch 50
 ```
 $ python caluculate_mode_trust.py 
 ```
+
+## Questions/Bugs
+
+Please submit a Github issue if you have any questions or find any bugs.
