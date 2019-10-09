@@ -2,8 +2,12 @@
 Extracting features (from a predefined layer) from trained models
 '''
 
-import model_params
-import util_functions as utils
+import sys
+sys.path.append("..")
+
+
+from train_DL_model import model_params
+from utils import util_functions as utils
 import os, numpy as np
 from keras.models import Model, load_model
 

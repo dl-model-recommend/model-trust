@@ -1,8 +1,10 @@
 '''
 Training only classification network on auxillary tasks using the features from the DL model trained on primary task
 '''
+import sys
+sys.path.append("..")
 
-import classification_params
+from train_classifier_model import classification_params
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.utils import to_categorical
@@ -16,41 +18,9 @@ import csv, numpy as np
 # 1. Provide the order in which the labels are provided in the label matrix
 task_mapping = {"shape": 0, "color": 1, "size": 2, "quadrant": 3, "background": 4}
 
-
-'''
-import argparse
-import csv
-import os
-import sys
-
-import keras
-import numpy as np
-
-
-
-from keras.utils import to_categorical
-
-
-task_mapping = {"shape":0,  "color":1, "size":2, "quadrant":3, "background":4}
-
-parser = argparse.ArgumentParser(prog='PROG')
-parser.add_argument('--task', default="all", choices=['all', 'color', 'shape', 'size', 'quadrant', 'background'],
-						help='Use features from task color, shape, qudrant, size, background. Or all')
-parser.add_argument('--prefix', help='add prefix to uniquely identify the each experiments', required=True)
-parser.add_argument('--epoch', help='number of epoch to train the model', required=True)
-args = parser.parse_args()
-
-MATRIX_FILE_NAME = "trust_matrix.csv"
-
-feat_dir = "./features"
-epochs = args.epoch
-verbose = 1
-batch_size = 32
-header_row = ["task"] + list(task_mapping.keys())
-'''
-
 def classifier_network(data_shape, num_labels):
 	""" Build a small fully connected two hiddey layer neural network classifier. Can replace this with any custom classifier of choice"""
+	
 	model = Sequential()
 	model.add(Dense(512, input_shape=(data_shape, ), activation='relu', name="cus_dense_1"))
 	model.add(Dropout(0.5, name='cus_dense_do_1'))
@@ -61,8 +31,8 @@ def classifier_network(data_shape, num_labels):
 
 def train_models():
 	""" Train the features extracted from a DL model to perform auxillary tasks"""
+	
 	trained_task = classification_params.task
-
 	header_row = ["task"] + list(task_mapping.keys())
 	fd = open(classification_params.OUTPUT_MATRIX_FILE_NAME,'w')
 	writer = csv.writer(fd)

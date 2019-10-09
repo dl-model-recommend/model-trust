@@ -1,5 +1,12 @@
-import dataset_params
-import util_functions as utils
+'''
+Generating multiple class synthetic dataset with balanced samples
+'''
+
+import sys
+sys.path.append("..")
+
+from make_dataset import dataset_params
+from utils import util_functions as utils
 import os, random, cv2, math, csv, pandas as pd, numpy as np
 
 def make_npz_file(data_type):
@@ -79,7 +86,7 @@ def makeCircle(presentColor, radius, center, background, colorsRGB):
 	return img
 
 def makeDataset(numberOfTrials, data_type):
-	"""This is the main function that creates the dataset"""
+	"""Make train or test dataset based on the number of samples given"""
 
 	data_folder = data_type + "_images"
 	label_file = os.path.join(dataset_params.data_path, data_type + "_lables.csv")
@@ -159,7 +166,9 @@ def makeDataset(numberOfTrials, data_type):
 	
 	return None
 
-def main():
+def make_dataset():
+	"""This is the main function that creates the dataset"""
+
 	numberOfTrials = dataset_params.num_of_samples
 	numberOfTrials_train = int(numberOfTrials*0.8)
 	numberOfTrials_test = int(numberOfTrials*0.2)
@@ -178,4 +187,4 @@ def main():
 	print("Done!!!")
 
 if __name__ == '__main__':
-	main()
+	make_dataset()

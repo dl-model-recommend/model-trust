@@ -3,9 +3,11 @@ Traning as baseline models (Densenet121) on dataset
 Change the build_model() function to use your custom deep learning model
 This function should written a valid keras or tf.keras Model object
 '''
+import sys
+sys.path.append("..")
 
-import model_params
-import util_functions as utils
+from train_DL_model import model_params
+from utils import util_functions as utils
 import os, numpy as np
 from keras.optimizers import Adam
 from keras.utils import to_categorical
@@ -43,7 +45,7 @@ def build_model(num_lables):
 	return model
 
 
-def training():
+def train_models():
 	"""This is the main function that trains the model for one or many tasks"""
 
 	task = model_params.task
@@ -114,4 +116,4 @@ def training():
 	return None
 
 if __name__ == "__main__":
-	training()
+	train_models()

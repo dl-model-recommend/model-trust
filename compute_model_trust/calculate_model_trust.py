@@ -1,9 +1,11 @@
 '''
 Calculate the model trust score given ideal trust matrix and predicted trust matrix
 '''
+import sys
+sys.path.append("..")
 
 import pandas as pd
-import trust_params
+from compute_model_trust import trust_params
 
 def calculate():
 	"""Method to calculate the trust score given the ideal trust matrix and the generated trust matrix for the DL model"""

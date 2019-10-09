@@ -4,7 +4,27 @@ This repository contains the original implementation of the paper - **[Is my dee
 
 ## Introduction
 
+1. Generate synthetic dataset (Can skip this with custom dataset)
+2. Train a deep learning model for one task (currently training DenseNet model, can replace this with custom DL model)
+3. Extract features of dataset on the DL model (can chose any custom layer)
+4. Train neural network classifier model for other auxillary tasks (can replace this with custom classifier)
+5. Computer Model trust score
+
+Overall Input:
+ - **Image data**: (N, h, w, 3) where 'N' is the number of images, 'hxw' is the dimension of each image
+ - **Image label**: (N, m) where 'm' is the number of tasks performed using the same image - m_1 can be a 3-class classification task, m_2 maybe a 7-class classification task etc. One of the 'm' is a primary task and the rest of the 'm' becomes auxillary tasks.
+ - **DL model**: 'keras' or 'tf.keras' compatible DL model object (trained or vanilla). The DL model is trained on the primary task.
+
+Overall Output:
+ - **Trust score**: [0-1], on how much the input DL model performs trustworthy learning on the input image data
+
+
+Approach: 
+![](images/flow_diagram.png)
+
 ## Dependencies
+This code requires Keras 2+ and works in Python 3.6+
+
 
 ## Quick Start
 
@@ -19,38 +39,23 @@ $ cd model-trust
 $ pip install -r requirements.txt
 ```
 
-### Create synthetic dataset
+### Run the entire code
 
 ```
-$ python make_dataset.py -n 5
-```
-here: n is num of image to generate per variation. 
-
-
-### Train densenet model on sysnthetic data 
-```
-$ python train_models.py --task color --prefix densenet --epoch 50
-```
-here: task is `color, shape, size, quadrant, background`
-prefix is unique identifier for experiments, like : densent
-
-
-### To extract the features from trained model
-```
-$ python extract_features.py --task color --prefix densenet --layer flatten_1
+$ python main.py
 ```
 
+There are four primary paramter files for customization:
+ - `make_dataset/dataset_params.py`
+ - `train_DL_model/model_params.py`
+ - `train_classifier_model/classification_params.py`
+ - `compute_model_trust/trust_params.py`
 
-### To calculate accuracy on all auxillary task 
-```
-$ python classification_net.py --task color --prefix densenet --epoch 50
-```
+## Results for DenseNet model
 
-### Calculate model trust
+![Ideal Matrix](images/ideal_matrix.png "Ideal trust matrix")        ![DenseNet Trust Matrix](images/Densenet.png "Obtained trust matrix for DenseNet model")
 
-```
-$ python caluculate_mode_trust.py 
-```
+DenseNet Trust Score: `0.7572`
 
 ## Questions/Bugs
 
