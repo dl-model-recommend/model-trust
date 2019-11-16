@@ -1,6 +1,6 @@
-# [ICLR-2020](https://openreview.net/forum?id=B1lf4yBYPr)
+# [Reducing Model Overlearning]
 
-This repository contains the original implementation of the paper - **[Is my deep learning model learning more than I want it to?](https://openreview.net/forum?id=B1lf4yBYPr)**.
+This repository contains the original implementation of the paper - **[Reducing Overlearning through Disentangled Representations by Suppressing Unknown Tasks]()**.
 
 ## Introduction
 
@@ -61,17 +61,3 @@ DenseNet Trust Score: `0.7572`
 
 Please submit a Github issue if you have any questions or find any bugs.
 
-## Citation
-
-Please cite our paper using following BibTeX
-```
-@inproceedings{
-anonymous2020is,
-title={Is my Deep Learning Model Learning more than I want it to?},
-author={Anonymous},
-booktitle={Submitted to International Conference on Learning Representations},
-year={2020},
-url={https://openreview.net/forum?id=B1lf4yBYPr},
-note={under review}
-}
-```
